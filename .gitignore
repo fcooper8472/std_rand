@@ -34,3 +34,6 @@
 # Clion
 .idea
 cmake-build*
+
+# Visual Studio
+.vs
