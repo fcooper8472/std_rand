@@ -49,3 +49,41 @@ TEST_CASE( "Mersenne twister", "[mt_generation]" )
     REQUIRE(gen.GetRandomNumberFromMT() == 2193134438);
     REQUIRE(gen.GetRandomNumberFromMT() == 3178694676);
 }
+
+TEST_CASE( "Normal distribution", "[normal]" )
+{
+    // Create a random number generator, seeded at zero
+    RandomNumberGenerator gen(0);
+
+    unsigned num_to_burn = 1000;
+    for (auto i = 0; i < num_to_burn; ++i)
+    {
+        gen.StandardNormalRandomDeviate();
+    }
+
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - 0.213916979291645) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - 0.655055541497266) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -0.263656619220427) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -0.443422331423945) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - 0.427655889585016) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -1.14728162840505) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -0.20099024113024) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -1.17432591807003) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -1.50860368318311) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - 0.290713687772485) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -0.748194954821981) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -0.875933882278647) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - 0.149829385658084) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - 0.920523693083182) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -0.271774536519832) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -0.344742151160657) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -0.171526929001393) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - 0.590497288550672) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -0.428455242565632) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -2.13630027234933) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -1.63152044745001) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -1.06777264547548) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - 0.936560166366757) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -0.34123785319199) < 1e-12);
+    REQUIRE(fabs(gen.StandardNormalRandomDeviate() - -0.110303480332046) < 1e-12);
+}
